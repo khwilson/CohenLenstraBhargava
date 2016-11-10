@@ -84,261 +84,62 @@
 \newtheorem{rmk}[lem]{Remark}
 \newtheorem{question}[lem]{Question}
 
-\title{The Cohen-Lenstra Heuristics, Bhargava's Mass Formulas, and Stevenhagen's Conjecture agree}
+\title{The Cohen-Lenstra Heuristics Follow from Bhargava's Mass Formula}
 \author{Kevin H.~Wilson}
 
 \begin{document}
 
-Let $n > 1$ be an integer, $G \leq S_n$ a transitive permutation group of
-degree $n$, and $k$ a global field. Let $\sF = \sF(n, G, k)$ be the set of
-degree $n$ field extensions $K$ of $k$ which have Galois closure $L$ with
-$\Gal(L/k) \cong G$. Further, let $c: \sF \to \R_{\geq 0}$ be some {\em
-counting function} and write \[ \sF_c(X) = \{ K \in \sF : c(K) < X \}. \]
-Supposing that $\# \sF_c(X) < \infty$ for all $X$, we can ask for its
-asymptotics.
+\maketitle
 
-\begin{question}
-  Let $N_c(X) = \# \sF_c(X)$. Does there exist some ``nice'' function $f_c(X)$ such that
-  \[ N_c(X) \sim f_c(X)? \]
-\end{question}
+\input{introduction}
+\input{classgroups}
+\input{dihedralgroups}
+\input{finiteprimes}
+\input{infiniteprimes}
 
-This question has recently attracted a lot of attention, especially in the case
-when $k = \Q$ and $c = \Disc$. In particular, Bhargava followed up his work
-answering the question when $n = 4, 5$, $G = S_n$, and $k = \Q$
-\cite{BhargavaQuartic, BhargavaQuintic} by proposing that when $G = S_n$ and $k
-= \Q$, the answer to the question is yes, and that $f_c(X) \sim CX$ where $C$
-takes the shape of an Euler product \cite{BharagavaMass}.
+\section{Putting it all together}
 
-Kedlaya followed up Bhargava's work by pointing out that his formula looked
-like a sum over Galois representations \cite{KedlayaMass}. Specifically, if we
-fix a finite-dimensional representation $\rho : G \to \GL_m(\C)$ we can take $c
-= \ff$ to be the (global) Artin conductor of the Galois representation \[
-\Gal(\ksep/k) \to G \to \GL_m(\C). \] When $\rho$ is the permutation
-representation $S_n \to \GL_n(\C)$, $\ff = \Disc$. Kedlaya then proposes a
-specific answer to Question~\ref{quest:growth}.
-
-\begin{question}
-  For each prime $\fp$ of $k$ let $k_\fp$ be its localization and let $q = p^f$ be the size of its residue field. For a fixed representation $\rho : G \to \GL_m(\C)$, define
-  \[ \Gamma(\rho, \fp; s) = \sum_{\eta: \Gal(\ksep/k) \to G} q^{-s\Cond(\rho \circ \eta}. \]
-  Define
-  \[ \Phi(\rho; s) = \prod_{\fp} \Gamma(\rho, \fp; s). \]
-  Then $\Phi(\rho; s)$ converges absolutely for $\Re(s) \gg 0$.......
-\end{question}
-
-
-
-
-
-\section{Dihedral Fields and Class Groups}
-
-In this section we recall the relationship between dihedral extesions of a
-global field and its class groups. Recall that if $K = \Q(\sqrt{D})$ is a
-quadratic extension of $\Q$ and $H(K)$ is the Hilbert class field of $K$ then
-$H(K)/\Q$ is already Galois. So in particular, if $M/K$ is an unramified cyclic
-extension of $K$ of degree $n$, then $M/\Q$ is Galois and $\Gal(M/\Q) \cong C_n
-\rtimes C_2 \cong D_n$.  Then writing $C_n = \langle \sigma \rangle$ and $C_2 =
-\langle \tau \rangle$, we see that $K$ is the fixed field of $\sigma$ and so,
-since $M/K$ is unramifed, the inertia group $I_p$ at every prime $p$ of $\Q$
-must have $I_p \cap \langle \sigma \rangle$ trivial.
-
-However, $D_n$ contains the rotations $\sigma^i$ and the order $2$ reflections
-$\sigma^i\tau$.  The product of any two reflections is a rotation, which is
-nontrivial whenever the two multiplied reflections are distinct. This implies
-that at all primes $p$, $I_p$ must be an order $2$ group which contains a
-reflection and the identity.
-
-On the other hand, if $M/\Q$ is a Galois extension of degree $2n$ with Galois
-group $\Gal(M/\Q) \cong D_n$, then $M$ is a cyclic of degree $n$ over the fixed
-field $K$ of $\sigma$.  This extension is unramified if and only if the inertia
-groups $I_p \leq \Gal(M/\Q)$ at every prime $p$ have $I_p \cap \langle \sigma
-\rangle = \{ e \}$. This proves the following theorem.
-
-\begin{prop}
-  There is a one-to-one correspondence between on the one hand dihedral
-extensions $M/\Q$ with $\Gal(M/\Q) \cong D_n$ with $I_p \cap \langle \sigma
-\rangle = \{ e \}$ for all finite primes $p$ and on the other hand pairs $(K,
-M)$ where $K$ is a quadratic extension of $\Q$ and $M/K$ is an unramified
-cyclic extension.
-\end{prop}
-
-Next we would like to relate the number of unramified cyclic extensions $M/K$
-of degree $n$ to the number of elements in $\Cl(K)[n]$. Recall that every
-unramified extension of $K$ is a subextension of $H(K)$. Moreover,
-$\Gal(H(K)/K) \cong \Cl(K)$. Thus, every unramified cyclic extension of degree
-$n$ corresponds to a cyclic quotient of $\Cl(K)$ of order $n$.
-
-Moreover, $\Cl(K)$ is a finite abelian group, and so $\widehat{\Cl(K)} \cong
-\Cl(K)$ (non-canonically), and the same is true for every subgroup and
-quotient. On the other hand, there is a canonical one-ot-one correspondence
-between exact sequences $1 \to A \to B \to C \to 1$ and $1 \to \hat{C} \to
-\hat{B} \to \hat{A} \to 1$ when $A$, $B$, and $C$ are finite abelian groups.
-Thus, the number of cyclic quotients of $\Cl(K)$ of order $n$ is equal to tne
-number of cyclic {\em subgroups} of order $n$.
-
-Now if $\eta_n(G)$ is the number of cyclic subgroups of $G$ of order $n$, then
-$\eta_n(G) = \prod_p \eta_{p^{e_p}}(G_p)$ where $n = \prod_p p^{e_p}$. And so
-we can assume that $G$ is a $p$-group $C_{p^{f_1}} \times \cdots \times
-C_{p^{f_r}}$ where $f_i$ are monotonoically decreasing. Then the total number
-of $p^r$-cyclic subgroups in $G$ is the total number of elements of order $p$
-in $G[p^r]/G[p^{r-1}]$ times the number of elements in $G[p^{r-1}]$,
-and divided by $p - 1$.  But the number of order $p$ elements in
-$G[p^r]/G[p^{r-1}]$ is simply $p^{\# \{ f_i \mid f_i \geq r\}} - 1$.
-
-
-
-\section{The character table of dihedral groups}
-
-In this section we briefly recall the heuristics of Kedlaya \cite{kedlayamass},
-who extended Bhargava's heuristics \cite{bhargavamass}. Specifically, let $G$
-be a finite group and let $\rho : G \to \GL_m(\C)$ be a fixed,
-finite-dimensional representation. For any Galois extension $M/\Q$ with Galois
-group isomorphic to $G$, let $\eta : \Gal(\Qbar/\Q) \to \Gal(M/\Q)$ be the
-canonical projection. Then for any choice of isomorphism $\iota: \Gal(M/\Q) \to
-G$, the composition $\rho \circ \iota \circ \eta$ has the same Artin conductor,
-which we will denote $\Cond_\rho(M)$. On the other hand, we note that if $L$ is
-a non-Galois extension with closure $M$, we certainly may define $\Cond_\rho(L)
-= \Cond_\rho(M)$ without fear.
-
-Then when $p$ is tame in $M$, we know that the inertia group $I_p$ at $p$ is
-cyclic and generated, say, by $g$. Then it is easy to compute that the
-conductor $\Cond_\rho^p(M)$ at $p$ is $p^{-e(g)}$ where $e(g)$ is the number of
-eigenvalues of $\rho(g)$ not equal to $1$.
-
-
-\section{Computation}
-
-For any prime $p$, let $S_{D_n}^{\refl}$ the the set of continuous homomorphisms
-$\rho : \Gal(\Qbar_p/\Qbar) \to D_n$ where the image of inertia under $\rho$ does not contain a rotation. Then define
-\[ \mu_p(s) = \frac{1}{|D_n|} \sum_{\rho \in S_{D_n}^\refl} p^{-\cond(\rho)s} \]
-where $\cond(\rho)$ is the conductor of $\rho$ when composed with faithful
-two-dimensional representation $D_n \to \GL_2(\C)$. Note that the image of
-inertia does not contain rotations, and the value of the character of any such
-representation on a reflection is $0$, this is well-defined.
-
-For the rest of this section, we shall prove the following.
-
-\begin{prop}
-  When $p$ is odd, the value of $\mu_p(s)$ is $1 + 2p^{-s}$ when $n$ is even,
-and $1 + p^{-s}$ when $n$ is odd. Furthermore, $\mu_2(1) = 1 + 2p^{-1}$ when
-$n$ is even, and $1 + p^{-1}$ when $n$ is odd.
-\end{prop}
-
-We begin with the easiest case, when $(p, 2n) = 1$ and so $\rho$ is actually
-{\em tame}.  Then $\rho$ factors through the tame Galois group
-$\Gal(\Qbar_p/\Q_p)^\tame$ which is (topologically) generated by $g$ and $h$
-with $hgh^{-1} = g^p$, and the inertia group is (topologically) generated by
-$g$. Thus continuous homomorphisms $\rho : \Gal(\Qbar_p/\Q_p) \to D_n$ are in
-one-to-one correspondence with pairs of elements $g, h \in D_n$ with $hgh^{-1}
-= g^p$, and for any such pair, the value of $\cond(\rho)$ depends only on the
-image of $g$.  On the other hand, $g$ must map to either $e$ or a reflection
-under our assumptions. In either case, since $p$ is odd, $g^p = g$, and so we
-are looking for elements $h \in Z_g(D_n)$ where $Z_g(D_n)$ is the centralizer
-of $g$ in $D_n$. Then, abusing notation a bit and using the fact that $Z_e(D_n) = D_n$, we wish to compute
-\[ \mu_p = \frac{1}{|D_n|} \left[ |D_n| p^{-\cond(e)} + \sum_{\sigma^i\tau} |Z_{\sigma^i\tau}(D_n)| p^{-\cond(g)}\right]. \]
-
-Now for any $g \in D_n$, we see that $\cond(g)$ is the number of eigenvalues of
-$\rho(g)$ which are not equal to $1$. Thus, for $g = e$, we have $\cond(e) = 0$
-for $g$ a reflection we have $\cond(g) = 1$. This reduces our sum to 
-\[ \mu_p = 1 + \frac{p^{-1}}{|D_n|} \sum_{\sigma^i\tau} |Z_{\sigma^i\tau}(D_n)|. \]
-
-When $n$ is odd, then all reflections are conjugate, and so the
-orbit-stabilizer theorem tells us that $|Z_{\sigma^i\tau}(D_n)| = 2$ since half
-of all the elements of $D_n$ are reflections. On the other hand, if $n$ is
-even, then there are two conjugacy classes of reflections, exemplified by $\tau$ and
-$\sigma\tau$, and so $|Z_{\sigma^i\tau}(D_n)| = 4$. Thus,
-\[ \mu_p = 1 + 2p^{-1} \]
-when $n$ is even and
-\[ \mu_p = 1 + p^{-1} \]
-when $n$ is odd.
-
-Next we consider the case when $p$ is odd and $p \mid n$. Then it is no longer
-guaranteed {\em a priori} that the higher ramification groups at $p$ are
-trivial. However, we know that the quotients of the higher ramification groups
-$I_i/I_{i+1}$ for $i \geq 1$ are products of cyclic groups of order $p$. But if
-$I_1$ has a quotient which contains an element of order $p \ne 2$, then $I_1$
-must contain a rotation. We are assuming that this is {\em not} the case in our
-definition of $\mu_p$. This means that all the $\rho \in S_{D_n}^\refl$ are
-{\em tame} and so we can repeat the above computation for all such $p$.
-
-Finally, we come to the case when $p = 2$. First we consider the tame case.
-Then again we're looking for pairs $g, h \in D_n$ with $hgh^{-1} = g^2$ and $g$
-a reflection or the identity. But if $g$ is a reflection, then $g^2 = e \ne g$,
-and so it must be that $g = e$. That is, if $\rho$ is at most tamely ramified
-at $2$, then it is actually {\em unramified}. So the contribution from tamely
-ramified extensions to $\mu_2$ is simply $1$.
-
-On the other hand, if $\rho$ is wildly ramified at $2$, then since $I_0$ is
-already has order $2$, $I_1$ must be equal to $I_0$. Now we recall the
-following fact about subgroups of dihedral groups.
+At this point, Bhargava's philosophy in \cite{bhargavamass} and enumerated in
+Section~\ref{sec:introduction} would have us compute the ``expected number''
+$E(N)$ of Galois $D_n$ extensions $M/\Q$ with $\Cond(M) < X$ and whose inertia
+groups at all finite primes do not contain a rotation. We begin by noting that
+any such $N$ for which $E(N) \ne 0$ must be quite special.
 
 \begin{lem}
-  If $H \leq D_n$ is a subgroup, then $H$ is either isomorphic to a dihedral
-group $D_m$ with $m \mid n$, is a cyclic group $C_m$ with $m \mid n$, or is a
-reflection and hence isomorphic to $C_2$. In particular, if $H$ contains a
-reflection, it is either $C_2$ or a dihedral group.
+  Let $M/K/\Q$ be a tower of extensions with $M/\Q$ Galois with $\Gal(M/\Q) \cong D_n$ and let $M/\Q$ be an unramified cyclic extension of degree $n$. Then $\Cond(M) = \Disc(K)$.
 \end{lem}
+\begin{proof}
+  From our work in Section~\ref{sec:finiteprimes}, we know that at all odd
+primes $p$, if $M/\Q$ is ramified at $p$, then the value of the Artin conductor
+of $\rho_p$ is $1$. That is, $p \mid \Cond(M)$ and $p^2 \not\mid \Cond(M)$.  On
+the other hand, since the image of inertia in $D_n$ is not a rotation, the
+image of inertia in $\Gal(K/\Q) = \Gal(M/\Q)/\Gal(M/K)$ is nontrivial. Hence,
+$p$ ramifies in $K$ and, of course, $p$ then exactly divides $\Disc(K)$.
 
-Using this lemma, we see that the image of $\rho$ must be either exactly $I_1$
-or a dihedral group $D_m$ with $m \mid n$. In the case where the image of
-$\rho$ is exactly $I_1$, we may simply look up the wildly ramified, $C_2$
-extensions of $\Q_2$. Letting $s$ denote the number of nontrivial ramification
-groups (i.e., $I_s$ is the first trivial ramification group of $\rho$), we see
-that there are two fields with $s = 2$ and four fields with $s = 3$. In either
-case, the conductor is $s$ times the number of nonzero eigenvalues of the image
-of a reflection under $\rho$, which is $1$. Thus, the contribution from a single $\rho$ where the image is exactly a reflection is $s$, and the total contribution to $\mu_2$ is
-\[ \frac{1}{|D_n|} \sum_{\substack{\rho \in S_{D_n}^\refl \\ \image \rho\text{ reflection}}} 2^{-s(\rho)}
- = \frac{1}{|D_n|} \sum_{\text{reflections in $D_n$}} \left[ 2 \cdot 2^{-2} + 4 \cdot 2^{-3} \right]
- = \frac{1}{2} \left[ \frac{1}{2} + \frac{1}{2} \right] = \frac{1}{2}. \]
+If $p = 2$ and $p$ is ramified in $M$, then since there is only one slope in
+the wild ramification of $M$, then there is at most one slope in the wild
+ramification of $K$ at it is equal to the slope of wild ramification of $M$.
+This completes the proof.
+\end{proof}
 
-What remains to compute, then, is the contribution to $\mu_2$ coming from
-$\rho$ whose image is a full dihedral group $D_m$. However, the image of wild
-ramification is a {\em normal} nontrivial $2$-group in $D_m$. When $m$ is odd,
-there are no such subgroups, and so if $n$ is odd, then our computation is
-finished.
-
-When $m = 2^r s$ with $r \geq 0$ and $s > 1$ odd, then the reflection subgroups
-of $D_m$ are not normal. This is also true when $m = 2^r$ when $r \geq 2$.
-Thus, we are left to consider the case $m = 2$. Note that there are $n/2$
-subgroups of $D_n$ isomorphic to $D_2 \cong V_4$, namely, $\langle
-\sigma^{n/2}, \sigma^i\tau \rangle$ with $0 \leq i < n/2$.
-
-We can then look at the enumeration of all Galois quartic extensions of $\Q_2$
-with Galois group $V_4$ and note that only three of them have an inertia group
-isomorphic to $C_2$. Two of these have conductor $2^3$ and one has conductor
-$2^2$.  Now $V_4$ has six automorphisms, and so for any of these three kernels,
-there are six distinct maps $\Gal(\Qbar_2/\Q_2) \to V_4$ with that kernel. Of
-these, four have the image of inertia as a reflection. So in total the
-contribution to $\mu_2$ is
-\[ \frac{1}{|D_n|} \cdot \#\{ D_2 \leq D_n \} \cdot 4 \cdot \left[\frac{1}{4} + \frac{1}{8} + \frac{1}{8} \right]
-  = \frac{1}{2n} \cdot \frac{n}{2} \cdot 4 \cdot \frac{1}{2}
-  = \frac{1}{2}. \]
-
-This completes the proof of the theorem.
-
-
-\section{Infinite $p$}
-
-Who knows?????
-
-
-\section{Bhargava's Philosophy}
-
-In \cite{bhargavamass}, Bhargava enumerated a philosophy that the ``expected number'' of $S_n$ fields with absolute discriminant $d$ should be
-\begin{equation}\label{eqn:ed}
-  E(d) = *****,
+Thus, $N$ must be a fundamental discriminant. Still following Bhargava, we set
+\[ E(N) = \frac{1}{N} \]
+when $n$ is odd and
+\[ E(N) = \frac{2^{\omega(N)}}{N} \]
+when $N$ is even. This is the product over each prime $p \mid N$ of $|D_n|^{-1}$ times $\sum_\rho p^{-\cond(\rho)}$ where the sum is over Galois representations $\rho : \Gal(\Qbar_p/\Q_p) \to D_n$ where the image of inertia is {\em exactly} a reflection (and not trivial). We can then write
+\begin{equation}\label{eqn:phidefn}
+\Phi(s) = \sum_{N \geq 1} \frac{E(N)}{N^s} = \prod_p \mu_p(s).
 \end{equation}
-where the product is over all primes, including infinite primes.
-From this point, one may form the Dirichlet series
-\[ \Phi_n(s) = \sum_{n \geq 1} \frac{E(d)}{d^s}, \]
-and by the usual Tauberian theorems, one knows that the analytic properties of $\Phi_n(s)$ will describe the growth of $\sum_{d \leq X} E(d)$. In particular, Bhargava shows that under these assumptions,
-\[ N_{\Q, n}(S_n; X) \sim ...., \]
-which agrees with classical results for $n = 2$, Davenport and Heilbronn's work for $n = 3$ \cite{DH}, and Bhargava's own work with $n = 4, 5$ \cite{BhargavaQuartic, BhargavaQuintic}.
+Obviously this sum and this product ar absolutely convergent for $\Re(s) \gg 1$.
 
-For this secion, let $n$ be odd. Then let us define the quantity
-\[ \xi(s) = \prod_p \mu_p(s) = \frac{\mu_2(s)}{1 + 2^{-s}} \prod_{p}\left[ 1 + \frac{1}{p^s} \right]. \]
-When $\Re(s) > 1$, we see that this product converges absolutely. Then we can formally multiply by $(1 - p^{-s})/(1 - p^{-s})$ and we find that
-\[ \xi(s) = \frac{\mu_2(s)}{1 + 2^{-s}} \frac{\prod_p \left[1 - p^{-2}\right]}{\prod_p \left[1 - p^{-s}\right]}. \]
-The numerator is equal to $1/\zeta(2)$, and the denominator yields a $\zeta(s)$ for $\Re(s) > 1$. Since $\mu_2(1) = 1 + 2^{-1}$, we have that the residue of this function at $s = 1$ is $\zeta(2)^{-1}$ and so the growth of the number of ``special'' $D_n$ fields is $c\zeta(2)^{-1}X$ where $c$ is the associated $\R$ factor.
+When $n$ is odd, we can multiply \eqref{eqn:phidefn} by $(1 - p^{-1})/(1 - p^{-1})$ and obtain
+\[ \Phi(s) = \frac{\zeta(s)}{\zeta(2s)} \]
+for $s \gg 1$. Thus, employing the usual Tauberian theorms, this implies that
+\[ N_c(n, D_n, \Q; X) \sim \frac{1}{\zeta(2)}X \]
+when $n$ is odd. On the other hand, when $n$ is even, we must multiply by $(1 - p^{-1})^2/(1 - p^{-1})^2$ and we obtain
+\[ \Phi(s) = \zeta(s)^2 \prod_p \left( 1 - \frac{3}{p^{2s}} + \frac{2}{p^{3s}} \right). \]
+Employing the same Tauberian theorems, we arrive at
+\[ N_c(n, D_n, \Q; X) \sim \prod_p \left( 1 - \frac{3}{p^{2s}} + \frac{2}{p^{3s}} \right) X \log X. \]
 
 
 
@@ -347,36 +148,6 @@ The numerator is equal to $1/\zeta(2)$, and the denominator yields a $\zeta(s)$ 
 
 
 
-
-
-
-
-
-\section*{Notation}
-
-Throughout this note, $q$ will denote a rational prime. We will eventually have
-occasion to separate our study for odd and even $q$, but we will make this clear.
-
-\section{A review of the dihedral group $D_m$}
-
-This section gathers some results about the dihedral group $D_m$ of symmetries
-of the regular $m$-gon.  We leave most of the proofs to the reader.
-
-The group $D_m$ consists of $m$ rotations of $2\pi n/m$ radians and $m$ reflections.
-Writing $D_m$ as
-\[ D_m = \langle \sigma, \tau | \sigma^m = \tau^2 = (\sigma\tau)^2 = e \rangle , \]
-the $m$ rotations are the powers of $\sigma$ and the $m$ reflections are $\sigma^i\tau$
-for $i \in \{0, 1, \ldots, m-1\}$. With this definition, it makes sense to define
-\[ D_2 = \langle \sigma, \tau | \sigma^2 = \tau^2 = (\sigma\tau)^2 = e \rangle , \]
-which is obviously the Klein four group $V_4 = C_2 \times C_2$.
-
-The product of any two reflections is a rotation, and with this in mind, it becomes clear
-that the subgroups of $D_m$ can be divided into the following categories:
-\begin{itemize}
-  \item The trivial subgroup,
-  \item The $C_2$s which consist of a single reflection and the identity,
-  \item $blah$
-\end{itemize}
 
 
 

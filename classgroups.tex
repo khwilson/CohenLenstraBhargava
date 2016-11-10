@@ -1,0 +1,51 @@
+\section{Dihedral Fields and Class Groups}\label{sec:classgroups}
+
+In this section we recall the relationship between dihedral extesions of $\Q$
+field and the class groups of quadratic fields. Recall that if $K = \Q(\sqrt{D})$ is a
+quadratic extension of $\Q$ and $H(K)$ is the Hilbert class field of $K$ then
+$H(K)/\Q$ is already Galois. So in particular, if $M/K$ is an unramified cyclic
+extension of $K$ of degree $n$, then $M/\Q$ is Galois and $\Gal(M/\Q) \cong C_n
+\rtimes C_2 \cong D_n$.  Then writing $C_n = \langle \sigma \rangle$ and $C_2 =
+\langle \tau \rangle$, we see that $K$ is the fixed field of $\sigma$ and so,
+since $M/K$ is unramifed, the inertia group $I_p$ at every prime $p$ of $\Q$
+must have $I_p \cap \langle \sigma \rangle$ trivial.
+
+However, $D_n$ contains the rotations $\sigma^i$ and the order $2$ reflections
+$\sigma^i\tau$.  The product of any two reflections is a rotation, which is
+nontrivial whenever the two multiplied reflections are distinct. This implies
+that at all primes $p$, $I_p$ must be an order $2$ group which contains a
+reflection and the identity.
+
+On the other hand, if $M/\Q$ is a Galois extension of degree $2n$ with Galois
+group $\Gal(M/\Q) \cong D_n$, then $M$ is a cyclic of degree $n$ over the fixed
+field $K$ of $\sigma$.  This extension is unramified if and only if the inertia
+groups $I_p \leq \Gal(M/\Q)$ at every prime $p$ have $I_p \cap \langle \sigma
+\rangle = \{ e \}$. This proves the following theorem.
+
+\begin{prop}\label{prop:nottoram}
+  There is a one-to-one correspondence between on the one hand dihedral
+extensions $M/\Q$ with $\Gal(M/\Q) \cong D_n$ with $I_p \cap \langle \sigma
+\rangle = \{ e \}$ for all finite primes $p$ and on the other hand pairs $(K,
+M)$ where $K$ is a quadratic extension of $\Q$ and $M/K$ is an unramified
+cyclic extension.
+\end{prop}
+
+Next we would like to relate the number of unramified cyclic extensions $M/K$
+of degree $n$ to the number of elements in $\Cl(K)[n]$. Recall that every
+unramified extension of $K$ is a subextension of $H(K)$. Moreover,
+$\Gal(H(K)/K) \cong \Cl(K)$. Thus, every unramified cyclic extension of degree
+$n$ corresponds to a cyclic quotient of $\Cl(K)$ of order $n$. Since $\Cl(K)$
+is a finite abelian group, duality assures us that cyclic quotients of order
+$n$ are in one-to-one correspondence with cyclic subgroups of order $n$.
+
+Now if $\eta_n(G)$ is the number of cyclic subgroups of $G$ of order $n$, then
+$\eta_n(G) = \prod_p \eta_{p^{e_p}}(G)$ where $n = \prod_p p^{e_p}$. Then the
+total number of cyclic subgroups of $G$ of order $p^r$ is the number of
+nontrivial elements in $G[p^r]/G[p^{r-1}]$ times the number of elements in
+$G[p^{r-1}]$. This proves the following proposition.
+
+\begin{prop}\label{prop:exttoclass}
+  If $K$ is a quadratic field and $n = p_1^{e_1} \cdots p_r^{e_r}$, then the number
+  of unramified cyclic extensions of degree $n$ of $K$ is equal to
+  \[ \prod_{i=1}^r \frac{|\Cl(K)[p_i^{e_i}]| - \Cl(K)[p_i^{e_i-1}]}{p - 1}. \]
+\end{prop}

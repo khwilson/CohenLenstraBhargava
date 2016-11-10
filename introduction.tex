@@ -1,0 +1,84 @@
+\section{Introduction}\label{sec:introduction}
+
+There has been quite a bit of work in the arithmetic statistics community over
+the past decade on three sets of conjectures: the Cohen-Lenstra Heuristics
+\cite{CohenLenstra}, Bhargava's conjecture\footnote{This conjecture grew out of
+the work of many people, notably starting with a conjecture of Linnick
+\cite{Linnick} the that the number of $S_n$ fields with absolute discriminant
+bounded by $X$ should be $\asymp X$. Bhargava's contribution was to interpret
+the constant of proportionality, which is the most critical component for this
+note.} on the density of discriminants of $S_n$ fields \cite{bhargavamass} (and
+specifically Kedlaya's extensions \cite{kedlayamass}), and Stevenhagen's
+Conjecture on the proportion of real quadratic fields whose fundamental unit
+has negative norm \cite{Stevenhagen}. The purpose of this note is to show that
+these conjectures are all {\em consistent}, and in fact, a particular subset of
+Bhargava's conjecture for dihedral extensions would prove the other two.
+
+Let $n > 1$ be an integer, $G \leq S_n$ be a transitive permutation group of
+degree $n$, and $k$ a global field. Let $\sF = \sF(n, G, k)$ be the set of
+degree $n$ field extensions $K$ of $k$ which have Galois closure $L$ with
+$\Gal(L/k) \cong G$. Further, let $c: \sF \to \R_{\geq 0}$ be some {\em
+counting function} and write \[ \sF_c(X) = \{ K \in \sF : c(K) < X \}. \]
+Supposing that $\# \sF_c(X) < \infty$ for all $X$, we can ask for its
+asymptotics.
+
+\begin{question}
+  Let $N_c(n, G, k; X) = N_c(X) = \# \sF_c(X)$. Does there exist some ``nice''
+  function $f_c(X)$ (e.g., a polynomial in $X$ and $\log X$) such that \[ N_c(X) \sim f_c(X)? \]
+\end{question}
+
+In particular, Bhargava noted in \cite{bhargavamass} that these asymptotics
+tended to appear as nice Euler products. Bhargava gave one description, but
+Kedlaya gave a more general interpretation \cite{kedlayamass}. Specifically,
+fix a finite group $\Gamma$ and a faithful representation $\eta: G \to
+\GL_m(\C)$. Let, for now, $k$ be a nonarchimedean local field whose residue
+field has size $q$, and let $S$ be the set of all continuous homomorphisms
+$\rho : \Gal(\ksep/k) \to G$. Define the {\em local mass} \[ M_k(\eta, s) =
+\sum_{\rho \in S} q^{-s\cond(\eta \circ \rho)}, \] where $\cond$ is the (local)
+conductor of $\eta \circ \rho$. Let.....
+
+if $k$ is a {\em
+local} field and $\Gal(\ksep/k)$ is the absolute Galois group of $k$, then 
+
+This question has been answered in the affirmative for quite a few combinations
+of $n$, $G$, $k$, and $c$. In particular, much work has been done when $c =
+\Disc$ is the absolute value of the discriminant of the number field. In that
+case, with $k = \Q$, the count was derived for $G$ abelian by M\"aki
+\cite{MakiDisc}, $n = 3$ and $G = S_3$ by Davenport and Heilbronn \cite{DH},
+and $n = 4, 5$ and $G = S_n$ by Bhargava \cite{BhargavaQuarticCount,
+BhargavaQuinticCount}. This was recently extended by Bhargava, Shankar, and
+Wang \cite{BhargavaShankarWang} to $k$ an arbitrary global field.
+
+
+
+This question has recently attracted a lot of attention, especially in the case
+when $k = \Q$ and $c = \Disc$, the absolute value of the discriminant of the
+extension $L$. In particular, Bhargava followed up his work answering the
+question when $n = 4, 5$, $G = S_n$, and $k = \Q$ \cite{BhargavaQuarticCount,
+BhargavaQuinticCount} by proposing that when $G = S_n$ and $k = \Q$, the answer to
+the question is yes, and $f_{\Disc}(X) \sim CX$ where $C$ takes the shape of an
+Euler product \cite{bharagavamass}. Indeed, more generally, Bhargava, Shankar, and Wang
+\cite{BhargavaShankarWang} have extended all of these results to an arbitrary global
+base field.
+
+Kedlaya followed up Bhargava's work by pointing out that his formula looked
+like a sum over Galois representations \cite{KedlayaMass}. Specifically, if we
+fix a finite-dimensional representation $\rho : G \to \GL_m(\C)$ we can take $c
+= \Cond$ to be the (global) Artin conductor of (the conjugacy class of) the Galois
+representation
+\[ \Gal(\ksep/k) \to G \to \GL_m(\C) \]
+attached to $L$. For instance, when $\rho$ is the permutation representation
+$S_n \to \GL_n(\C)$, then $\Cond = \Disc$. 
+
+
+
+Kedlaya then proposes a
+specific answer to Question~\ref{quest:growth}.
+
+\begin{question}
+  For each prime $\fp$ of $k$ let $k_\fp$ be its localization and let $q = p^f$ be the size of its residue field. For a fixed representation $\rho : G \to \GL_m(\C)$, define
+  \[ \Gamma(\rho, \fp; s) = \sum_{\eta: \Gal(\ksep/k) \to G} q^{-s\Cond(\rho \circ \eta}. \]
+  Define
+  \[ \Phi(\rho; s) = \prod_{\fp} \Gamma(\rho, \fp; s). \]
+  Then $\Phi(\rho; s)$ converges absolutely for $\Re(s) \gg 0$.......
+\end{question}
