@@ -1,0 +1,130 @@
+\section{The expected number of dihedral fields}\label{sec:dirichletseries}
+
+At this point, the philosophy that Bhargava articulates \cite{bhargavamass}
+would have us compute the ``expected number'' $E(N)$ of Galois $D_n$ extensions
+$M/\Q$ with $\Cond(M) < X$ and whose inertia groups at all finite primes do not
+contain a nontrivial rotation. Specifically, for $N = \prod_p p^{e_p}$, we set
+\begin{equation}\label{eqn:endefn}
+E(N) = \prod_p \frac{1}{|D_n|} \sum_{\substack{\rho \in S_{D_n}^{\refl}(p) \\ \cond(\rho) = e_p}} 1.
+\end{equation}
+The key assumption here is that the primes behave independently. Then we can set
+\begin{equation}\label{eqn:phisdefn}
+  \Phi(s) = \sum_{N \geq 1} \frac{E(N)}{N^s} = \prod_p \mu_p(s).
+\end{equation}
+As usual, the analytic properties of $\Phi(s)$ should tell us about the growth
+of $\sum_{N \geq 1} E(N)$.
+
+\subsection{$n$ odd}
+
+\begin{thm}\label{thm:phiodd}
+  When $n$ is odd, $\Phi(s)$ admits a meromorphic continuation to all $s \in
+\C$ and has a simple pole at $s = 1$. The residue $\Res_{s=1}\Phi(s) =
+\zeta(2)^{-1}$. Thus, by standard Tauberian theorems,
+\[ \sum_{N \geq 1} E(N) \sim \zeta(2)^{-1} X. \]
+\end{thm}
+\begin{proof}
+
+  From the computations of $\mu_p(s)$ in Section~\ref{sec:finiteprimes}, we see
+that the $\Phi(s)$ defined in \eqref{eqn:phisdefn} converges absolutely for
+$\Re(s) \geq 1$. Multiplying and dividing by $1 - p^{-s}$ at all $p$ we find
+that for $\Re(s) \geq 1$
+\[ \Phi(s) = \frac{1 - 2^{-s}}{1 - 2^{-s}} \cdot \mu_2(s) \cdot \prod_{p\text{ odd}} \frac{1 - p^{-2s}}{1 - p^{-s}}. \]
+Then if we also multiply and divide by $1 + 2^{-s}$ we arrive at
+\[ \Phi(s) = \frac{\mu_2(s)}{1 + 2^{-s}} \frac{\zeta(s)}{\zeta(2s)}. \]
+This function, of course, has a meromorphic continuation to all $s \in \C$ with
+its only zero or pole with $\Re(s) \geq 1$ being a simple pole at $s = 1$. From our computation of $\mu_2(1)$ in
+Proposition~\ref{prop:finiteprimesevenp}, we find that
+\[ \Res_{s = 1}\Phi(s) = \zeta(2)^{-1}, \]
+and so we arrive at the theorem.
+\end{proof}
+
+\subsection{$n$ even}
+
+In the case of $n$ even, the same computation as in the proof of
+Theorem~\ref{thm:phieven} will yield a double pole coming from $\zeta(s)^2$ at
+$s = 1$ and so we would expect a growth rate of $X \log X$. But recall from
+????  that for our purposes we are less interested in the expected number of
+$D_n$ fields with conductor $N$, but the expected number of $D_n$ fields
+divided by the size of the two torsion in the class group of the quadratic
+subfield.
+
+However, genus theory teaches us that if $K$ has discriminant $N$, then $\left|
+\Cl^+(K)[2] \right| = 2^{\omega(N)}$ where $\omega(N)$ is the number of prime
+divisors of $N$ and $\Cl^+(K)$ is the {\em narrow class group} of $K$. Thus, we can
+define
+\begin{equation}\label{eqn:eprimendefn}
+E'(N) = \frac{1}{\left| \Cl^+(K)[2] \right|} \prod_p \frac{1}{|D_n|} \sum_{\substack{\rho \in S_{D_n}^{\refl}(p) \\ \cond(\rho) = e_p}} 1.
+\end{equation}
+Forming the directly series
+\[ \Phi'(s) = \sum_{N \geq 1} \frac{E'(N)}{N^s} = \prod_p \mu'_p(s). \]
+Here we recall that for odd $p$, $\mu_p(s) = 1 + 2p^{-s}$ and so $\mu'_p(s) = 1 + p^{-s}$. For $p = 2$, we have that $\mu_2(s) = 1 + 2/2^{2s} + 4/2^{3s}$ and so $\mu'_2(s) = 1 + 1/2^{2s} + 2/2^{3s}$. Of course, these are {\em equal} to values of $\mu_p(s)$ when $n$ is odd, and so the same proof of Theorem~\ref{thm:phiodd} applies to the following theorem.
+
+\begin{thm}\label{thm:phieven}
+  When $n$ is even, $\Phi'(s)$ admits a meromorphic continuation to all $s \in
+\C$ and has a simple pole at $s = 1$. The residue $\Res_{s=1}\Phi(s) =
+\zeta(2)^{-1}$. Thus, by standard Tauberian theorems,
+\[ \sum_{N \geq 1} E'(N) \sim \zeta(2)^{-1} X. \]
+\end{thm}
+
+
+\subsection{An aside on the narrow class group}
+
+In \eqref{eqn:eprimendefn} we defined $E'(N)$ in terms of the {\em narrow}
+class group. We would like to show that we could equally well define $E'(N)$ in
+terms of the class group, and Theorem~\ref{thm:phieven} would remain unchanged.
+More specifically, let
+\begin{equation}\label{eqn:eprimendefn}
+E''(N) = \frac{1}{\left| \Cl(K)[2] \right|} \prod_p \frac{1}{|D_n|} \sum_{\substack{\rho \in S_{D_n}^{\refl}(p) \\ \cond(\rho) = e_p}} 1.
+\end{equation}
+
+\begin{cor}\label{cor:classinsteadofnarrow}
+  We have that
+  \[ \sum_{N \geq 1} E''(N) \sim \frac{1}{2} \sum_{N \geq 1} E'(N). \]
+\end{cor}
+
+Recall the exact sequence
+\begin{equation}\label{eqn:narrowclgrpexact}
+1 \to F_\infty(K) \to \Cl^+(K) \to \Cl(K) \to 1,
+\end{equation}
+
+where $F_\infty(K) \leq C_2$.  This tells us that \[ \frac{1}{2} E'(N) \leq
+E''(N) \leq E'(N). \]  But we also know that $F_\infty(K)$ is nontrivial if and
+only if $K$ is real and the fundamental unit $\eps$ of $K$ has norm $1$.  But
+if there is some prime $p \equiv 3 \pmod{4}$ with $p \mid \Disc(K)$, there can
+be no such unit (or else $x^2 \equiv -1$ would have a solution modulo $p$), and
+so $\Cl^+(K) \ne \Cl(K)$ for all such $K$. In fact, we have the following.
+
+\begin{lem}\label{lem:splitcl2}
+  Let $K$ be a real quadratic field and suppose $F_\infty = C_2$. Then
+\eqref{eqn:narrowclgrpexact} splits if and only if there is a prime $p \equiv 3
+\pmod{4}$ with $p \mid \Disc(K)$.
+\end{lem}
+\begin{proof}
+  See, for instance, \cite[Th\'eor\`eme 8]{LouboutinThreeModFour}.
+\end{proof}
+
+So if all prime divisors $p \mid N$ satisfy $p \equiv 1 \pmod{4}$ then $E''(N)
+= E'(N)$. On the other hand, if $N$ has a divisor which is congruent to $3
+\pmod{4}$, then $E''(N) = \frac{1}{2} E'(N)$.
+
+\begin{lem}
+  Let $\sD(X)$ be the set of all positive fundamental discriminants less than
+$X$ which have no prime divisor $\equiv 3 \pmod{4}$. Then
+  \[ \sum_{N \in \sD(X)} E'(N) = o(X). \]
+\end{lem}
+\begin{proof}
+  Forming the Diriclet series
+  \begin{equation}\label{eqn:smalldirichtlet}
+  \sum_{N \in \sD} \frac{E'(N)}{N^s} = \prod_{p \not\equiv 3 \pmod{4}} \mu'_p(s).
+  \end{equation}
+  As in the previous subsections, we may, upto a bounded constant, replace
+$\mu'_2(s)$ with $1 + 2^{-s}$. Then, multiplying and dividing by $\prod_{p
+\not\equiv 3 \pmod{4}} 1 - p^{-s}$ we find that \eqref{eqn:smalldirichtlet} is
+equal to the product of a holomorphic function and the function \[ \prod_{p
+\not\equiv 3 \pmod{4}} \left(1 - p^{-s}\right)^{-1}. \] However, this function
+has been well-studied, e.g. in \cite[Satz 3]{RiegerNegPell}.  In particular,
+this implies that the sum in question is $O(X/\sqrt{\log X})$.
+\end{proof}
+
+This lemma allows us to replace $E''(N)$ by $\frac{1}{2}E'(N)$ for all $N$, and
+this completes the proof of Corollary~\ref{cor:classinsteadofnarrow}.

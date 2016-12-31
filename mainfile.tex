@@ -34,12 +34,14 @@
 \newcommand{\image}{\operatorname{im}}
 \newcommand{\refl}{\mathrm{refl}}
 \newcommand{\tame}{\mathrm{tame}}
+\newcommand{\Norm}{\operatorname{Norm}}
 
 \newcommand{\bOne}{\mathbbm{1}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\CC}{{\rm C}}
 \newcommand{\bF}{\mathbb{F}}
 \newcommand{\Ss}{\mathcal{S}}
+\newcommand{\sD}{\mathcal{D}}
 \newcommand{\bP}{\mathbb{P}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\bQ}{\mathbb{Q}}
@@ -96,61 +98,8 @@
 \input{dihedralgroups}
 \input{finiteprimes}
 \input{infiniteprimes}
-
-\section{Putting it all together}
-
-At this point, Bhargava's philosophy in \cite{bhargavamass} and enumerated in
-Section~\ref{sec:introduction} would have us compute the ``expected number''
-$E(N)$ of Galois $D_n$ extensions $M/\Q$ with $\Cond(M) < X$ and whose inertia
-groups at all finite primes do not contain a rotation. We begin by noting that
-any such $N$ for which $E(N) \ne 0$ must be quite special.
-
-\begin{lem}
-  Let $M/K/\Q$ be a tower of extensions with $M/\Q$ Galois with $\Gal(M/\Q) \cong D_n$ and let $M/\Q$ be an unramified cyclic extension of degree $n$. Then $\Cond(M) = \Disc(K)$.
-\end{lem}
-\begin{proof}
-  From our work in Section~\ref{sec:finiteprimes}, we know that at all odd
-primes $p$, if $M/\Q$ is ramified at $p$, then the value of the Artin conductor
-of $\rho_p$ is $1$. That is, $p \mid \Cond(M)$ and $p^2 \not\mid \Cond(M)$.  On
-the other hand, since the image of inertia in $D_n$ is not a rotation, the
-image of inertia in $\Gal(K/\Q) = \Gal(M/\Q)/\Gal(M/K)$ is nontrivial. Hence,
-$p$ ramifies in $K$ and, of course, $p$ then exactly divides $\Disc(K)$.
-
-If $p = 2$ and $p$ is ramified in $M$, then since there is only one slope in
-the wild ramification of $M$, then there is at most one slope in the wild
-ramification of $K$ at it is equal to the slope of wild ramification of $M$.
-This completes the proof.
-\end{proof}
-
-Thus, $N$ must be a fundamental discriminant. Still following Bhargava, we set
-\[ E(N) = \frac{1}{N} \]
-when $n$ is odd and
-\[ E(N) = \frac{2^{\omega(N)}}{N} \]
-when $N$ is even. This is the product over each prime $p \mid N$ of $|D_n|^{-1}$ times $\sum_\rho p^{-\cond(\rho)}$ where the sum is over Galois representations $\rho : \Gal(\Qbar_p/\Q_p) \to D_n$ where the image of inertia is {\em exactly} a reflection (and not trivial). We can then write
-\begin{equation}\label{eqn:phidefn}
-\Phi(s) = \sum_{N \geq 1} \frac{E(N)}{N^s} = \prod_p \mu_p(s).
-\end{equation}
-Obviously this sum and this product ar absolutely convergent for $\Re(s) \gg 1$.
-
-When $n$ is odd, we can multiply \eqref{eqn:phidefn} by $(1 - p^{-1})/(1 - p^{-1})$ and obtain
-\[ \Phi(s) = \frac{\zeta(s)}{\zeta(2s)} \]
-for $s \gg 1$. Thus, employing the usual Tauberian theorms, this implies that
-\[ N_c(n, D_n, \Q; X) \sim \frac{1}{\zeta(2)}X \]
-when $n$ is odd. On the other hand, when $n$ is even, we must multiply by $(1 - p^{-1})^2/(1 - p^{-1})^2$ and we obtain
-\[ \Phi(s) = \zeta(s)^2 \prod_p \left( 1 - \frac{3}{p^{2s}} + \frac{2}{p^{3s}} \right). \]
-Employing the same Tauberian theorems, we arrive at
-\[ N_c(n, D_n, \Q; X) \sim \prod_p \left( 1 - \frac{3}{p^{2s}} + \frac{2}{p^{3s}} \right) X \log X. \]
-
-
-
-
-
-
-
-
-
-
-
+\input{dirichletseries}
+\input{finalproof}
 
 \bibliography{final}{}
 \bibliographystyle{plain}

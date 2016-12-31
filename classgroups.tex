@@ -1,7 +1,7 @@
 \section{Dihedral Fields and Class Groups}\label{sec:classgroups}
 
 In this section we recall the relationship between dihedral extesions of $\Q$
-field and the class groups of quadratic fields. Recall that if $K = \Q(\sqrt{D})$ is a
+and the class groups of quadratic fields. Recall that if $K = \Q(\sqrt{D})$ is a
 quadratic extension of $\Q$ and $H(K)$ is the Hilbert class field of $K$ then
 $H(K)/\Q$ is already Galois. So in particular, if $M/K$ is an unramified cyclic
 extension of $K$ of degree $n$, then $M/\Q$ is Galois and $\Gal(M/\Q) \cong C_n
@@ -13,11 +13,11 @@ must have $I_p \cap \langle \sigma \rangle$ trivial.
 However, $D_n$ contains the rotations $\sigma^i$ and the order $2$ reflections
 $\sigma^i\tau$.  The product of any two reflections is a rotation, which is
 nontrivial whenever the two multiplied reflections are distinct. This implies
-that at all primes $p$, $I_p$ must be an order $2$ group which contains a
-reflection and the identity.
+that at all ramified primes $p$, $I_p$ must be an order $2$ group which
+contains a reflection and the identity.
 
 On the other hand, if $M/\Q$ is a Galois extension of degree $2n$ with Galois
-group $\Gal(M/\Q) \cong D_n$, then $M$ is a cyclic of degree $n$ over the fixed
+group $\Gal(M/\Q) \cong D_n$, then $M$ is cyclic of degree $n$ over the fixed
 field $K$ of $\sigma$.  This extension is unramified if and only if the inertia
 groups $I_p \leq \Gal(M/\Q)$ at every prime $p$ have $I_p \cap \langle \sigma
 \rangle = \{ e \}$. This proves the following theorem.
@@ -36,16 +36,30 @@ unramified extension of $K$ is a subextension of $H(K)$. Moreover,
 $\Gal(H(K)/K) \cong \Cl(K)$. Thus, every unramified cyclic extension of degree
 $n$ corresponds to a cyclic quotient of $\Cl(K)$ of order $n$. Since $\Cl(K)$
 is a finite abelian group, duality assures us that cyclic quotients of order
-$n$ are in one-to-one correspondence with cyclic subgroups of order $n$.
-
-Now if $\eta_n(G)$ is the number of cyclic subgroups of $G$ of order $n$, then
-$\eta_n(G) = \prod_p \eta_{p^{e_p}}(G)$ where $n = \prod_p p^{e_p}$. Then the
-total number of cyclic subgroups of $G$ of order $p^r$ is the number of
-nontrivial elements in $G[p^r]/G[p^{r-1}]$ times the number of elements in
-$G[p^{r-1}]$. This proves the following proposition.
+$n$ are in one-to-one correspondence with cyclic subgroups of order $n$. But
+the number of cyclic subgroups of $G$ of order $n$ is well-known. So we arrive
+at the following.
 
 \begin{prop}\label{prop:exttoclass}
   If $K$ is a quadratic field and $n = p_1^{e_1} \cdots p_r^{e_r}$, then the number
   of unramified cyclic extensions of degree $n$ of $K$ is equal to
-  \[ \prod_{i=1}^r \frac{|\Cl(K)[p_i^{e_i}]| - \Cl(K)[p_i^{e_i-1}]}{p - 1}. \]
+  \begin{equation}\label{eqn:exttoclass}
+    \prod_{i=1}^r \frac{\left|\Cl(K)[p_i^{e_i}]\right| - \left|\Cl(K)[p_i^{e_i-1}]\right|}{p^{e_r}(p - 1)}.
+  \end{equation}
 \end{prop}
+
+For clarity, we note a few special cases when Propositions~\ref{prop:nottoram}
+and \ref{prop:exttoclass} are combined. First, note that if $M/K/\Q$ is as in
+Proposition~\ref{prop:nottoram}, then $\Disc(M/\Q) = \Disc(M/K)\Disc(K)^n =
+\Disc(K)^n$ since $M/K$ is unramified. Let $\sqrt[n]{\Disc} : \sF(2n, D_n) \to
+\R_{\geq 0}$ denote the function $M \mapsto \sqrt[n]{\Disc(M)}$. Then we write
+$\sF^{\mathrm{refl}}(2n, D_n, \sqrt[n]{\Disc}; X)$ denote the set of dihedral
+extensions $M/\Q$ with $\Gal(M/\Q) \cong D_n$ having $\sqrt[n]{\Disc(M)} < X$
+and whose inertia groups $I_p$ at all finite primes contain no nontrivial
+rotations. Then the two previous propositions immediately yield the following
+corollary.
+
+\begin{cor}\label{cor:oddprimeclass}
+  If $n = p$ is prime, then
+ \[ \# \sF^{\mathrm{refl}}(2n, D_n, \sqrt[n]{\Disc}; X) = \frac{1}{p-1} \sum_{K \in \sF(2, C_2, \Disc; X)} \left[\left|\Cl(K)[p]\right| - 1\right]. \]
+\end{cor}
